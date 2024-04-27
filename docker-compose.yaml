@@ -10,16 +10,23 @@ services:
       dockerfile: ./php/Dockerfile
     volumes:
       - ./app:/var/www/html
+    environment:
+      MYSQL_HOST: db
+      MYSQL_PORT: ${DB_PORT}
+      MYSQL_USER: ${DB_USER}
+      MYSQL_PASSWORD: ${DB_PASSWORD}
+      MYSQL_DATABASE: ${DB_DATABASE}
+
   db:
     image: mysql:8.1.0
     ports:
-      - "3306:3306"
+      - "3306:${DB_PORT}"
     restart: unless-stopped
     environment:
-      MYSQL_ROOT_PASSWORD: myrootpassword
-      MYSQL_USER: kingchobo
-      MYSQL_PASSWORD: kingchobopassword 
-      MYSQL_DATABASE: kingchobo
+      MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASSWORD}
+      MYSQL_USER: ${DB_USER}
+      MYSQL_PASSWORD: ${DB_PASSWORD}
+      MYSQL_DATABASE: ${DB_DATABASE}
     volumes:
       - dbdata:/var/lib/mysql
 
