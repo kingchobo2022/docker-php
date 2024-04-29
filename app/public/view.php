@@ -28,6 +28,9 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
     <div>
         <?= nl2br($row['content']) ?>
     </div>
+    <br>
+    <a href="delete.php?idx=<?= $idx ?>">삭제</a> 
+    <a href="edit.php?idx=<?= $idx ?>">수정</a>
 </body>
 </html> 
 

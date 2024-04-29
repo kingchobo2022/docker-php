@@ -25,6 +25,7 @@ $rs = $stmt->fetchAll(PDO::FETCH_ASSOC);
             <th>제목</th>
             <th>이름</th>
             <th>날짜</th>
+            <th>처리</th>
         </tr>
 <?php
     foreach($rs AS $row) :
@@ -34,6 +35,7 @@ $rs = $stmt->fetchAll(PDO::FETCH_ASSOC);
             <td><a href="view.php?idx=<?= $row['idx'] ?>"><?= $row['subject'] ?></a></td>
             <td><?= $row['name'] ?></td>
             <td><?= $row['rdatetime'] ?></td>
+            <td><a href="delete.php?idx=<?= $row['idx'] ?>">삭제</a></td>
         </tr>
 <?php
     endforeach;
