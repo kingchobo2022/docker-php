@@ -34,7 +34,11 @@ $stmt->execute([':idx' => $idx]);
     <span>등록일시 : <?= $row['rdatetime']; ?></span>
     <span>조회 수 : <?= $row['hit']; ?></span>
     <div>
-        <?= nl2br($row['content']); ?>
+        <?php
+            if($row['content'] != '') {
+                echo nl2br($row['content']); 
+            }
+        ?>
     </div>
 
 <?php
@@ -44,8 +48,10 @@ $stmt->execute([':idx' => $idx]);
     }
 ?>    
 
+<hr>
     <div>
-        <a href="delete.php?idx=<?= $row['idx']; ?>">삭제하기</a>
+        <a href="delete.php?idx=<?= $row['idx']; ?>">삭제하기</a> |
+        <a href="edit.php?idx=<?= $row['idx']; ?>">수정하기</a> |
         <a href="list.php">목록으로</a>
     </div>
 </body>
