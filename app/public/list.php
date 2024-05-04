@@ -59,5 +59,8 @@ foreach($rs AS $row) {
 <?php
     echo $paging;
 ?>    
+
+<hr>
+<a href="write.php">글쓰기</a>
 </body>
 </html>

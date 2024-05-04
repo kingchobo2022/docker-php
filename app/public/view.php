@@ -34,7 +34,19 @@ $stmt->execute([':idx' => $idx]);
     <span>등록일시 : <?= $row['rdatetime']; ?></span>
     <span>조회 수 : <?= $row['hit']; ?></span>
     <div>
-        <?= $row['content']; ?>
+        <?= nl2br($row['content']); ?>
+    </div>
+
+<?php
+    if($row['file'] != '') {
+        list($file_src, $file_name) = explode('|', $row['file']);
+        echo '<a href="download.php?idx='.$row['idx'].'">'.$file_name.'</a>';
+    }
+?>    
+
+    <div>
+        <a href="delete.php?idx=<?= $row['idx']; ?>">삭제하기</a>
+        <a href="list.php">목록으로</a>
     </div>
 </body>
 </html>
