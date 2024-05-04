@@ -19,8 +19,7 @@ $paging = paginate($totalPages, $currentPage, $baseUrl);
 
 $sql = "SELECT idx, name, subject, hit, rdatetime 
     FROM step2 
-    ORDER BY idx DESC LIMIT ".( ($currentPage - 1) * $limit   ).", ".$limit."
-    ";
+    ORDER BY idx DESC LIMIT ".( ($currentPage - 1) * $limit   ).", ".$limit;
 
 $stmt = $conn->prepare($sql);
 $stmt->execute();
@@ -47,7 +46,7 @@ foreach($rs AS $row) {
     echo '
         <tr>
             <td>'.$row['idx'].'</td>
-            <td>'.$row['subject'].'</td>
+            <td><a href="view.php?idx='.$row['idx'].'">'.$row['subject'].'</a></td>
             <td>'.$row['name'].'</td>
             <td>'.$row['hit'].'</td>
             <td>'.$row['rdatetime'].'</td>
