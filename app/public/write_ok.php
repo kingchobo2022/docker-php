@@ -31,5 +31,27 @@ if (isset($_FILES['file']['tmp_name'])
 
     $newfilename = makeFileName($_FILES['file']['name']);
     move_uploaded_file($_FILES['file']['tmp_name'], 'data/'. $newfilename);
+    $filename = $newfilename .'|'. $_FILES['file']['name'] .'|0';    
+}
 
+$sql = "INSERT INTO step3
+    SET code=:code, name=:name, subject=:subject, 
+        passwd=:passwd, content=:content,
+        file=:file, hit=0, rdatetime=NOW()";
+$stmt = $conn->prepare($sql);
+$arr = [
+    ':code' => $code,
+    ':name' => $name,
+    ':subject' => $subject,
+    ':passwd' => $passwd,
+    ':content' => $content,
+    ':file' => $filename
+];
+
+$rs = $stmt->execute($arr);
+
+if ($rs) {
+    exit('글 등록이 성공적으로 이뤄졌습니다. <a href="list.php?code='.$code.'">글 목록</a> ');
+} else {
+    exit('글 등록할때 오류가 발생했습니다. <a href="list.php?code='.$code.'">글 목록</a> ');
 }
