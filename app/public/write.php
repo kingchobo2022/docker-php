@@ -19,6 +19,9 @@ if($board_title == '') {
     <title><?= $board_title ?></title>
 </head>
 <body>
+
+<?php include 'inc/menu.php'; ?>
+
     <h1><?= $board_title ?></h1>
     
     <form method="post" enctype="multipart/form-data" action="write_ok.php" autocomplete="off">

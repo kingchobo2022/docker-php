@@ -6,8 +6,6 @@
     <title>Document</title>
 </head>
 <body>
-    <a href="write.php?code=notice">공지사항 글쓰기</a> 
-    | 
-    <a href="write.php?code=free">자유게시판 글쓰기</a> 
+    <?php include 'inc/menu.php'; ?>
 </body>
 </html>
