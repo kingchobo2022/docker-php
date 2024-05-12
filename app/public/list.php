@@ -86,25 +86,11 @@ $rs = $stmt->fetchAll(PDO::FETCH_ASSOC);
 <?php
     foreach($rs AS $row) {
 
-        $img = '';
-
-        if ($row['file'] != '') {
-            $tmp = explode('|', $row['file']);
-            $ext = getExtension($tmp[0]);
-
-            switch($ext) {
-                case 'jpg' : $img = '<img src="img/jpg.png" width="20" height="20">'; break;
-                case 'png' : $img = '<img src="img/png.png" width="20" height="20">'; break;
-                default : $img = '<img src="img/basic.png" width="20" height="20">'; break;
-            }
-
-        }
-
-        
+        $img = getFileIcon($row['file']);
         echo '
         <tr>
             <td>'.$row['idx'].'</td>
-            <td>'.$row['subject'] .'</td>
+            <td><a href="view.php?idx='.$row['idx'].'&code='.$code.'">'.$row['subject'] .'</a></td>
             <th>'.$img.'</td>
             <td>'.$row['name'] .'</td>
             <td>'.$row['hit'] .'</td>

@@ -20,6 +20,21 @@ function getExtension($file_name) {
     return end($tmp);
 }
 
+function getFileIcon($var) {
+    $img = '';
+    if ($var != '') {
+        $tmp = explode('|', $var);
+        $ext = getExtension($tmp[0]);
+
+        switch($ext) {
+            case 'jpg' : $img = '<img src="img/jpg.png" width="20" height="20">'; break;
+            case 'png' : $img = '<img src="img/png.png" width="20" height="20">'; break;
+            default : $img = '<img src="img/basic.png" width="20" height="20">'; break;
+        }
+    }
+    return $img;
+}
+
 function getBoardName($code) {
     global $boardNameArr;
 
