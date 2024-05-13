@@ -79,3 +79,23 @@ function paginate($totalPages, $currentPage, $baseUrl, $code) {
 
     return $pagination;
 }
+
+function downloadFile($filePath, $originalFileName) {
+    // 파일이 존재하는지 확인
+    if (file_exists($filePath)) {
+        // HTTP 헤더 설정
+        header('Content-Description: File Transfer');
+        header('Content-Type: application/octet-stream');
+        header('Content-Disposition: attachment; filename="' . $originalFileName . '"');
+        header('Expires: 0');
+        header('Cache-Control: must-revalidate');
+        header('Pragma: public');
+        header('Content-Length: ' . filesize($filePath));
+        // 파일을 출력 버퍼에 보냄
+        readfile($filePath);
+        exit;
+    } else {
+        // 파일이 존재하지 않을 경우 에러 출력
+        echo "파일이 존재하지 않습니다.";
+    }
+}
