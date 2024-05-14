@@ -54,12 +54,16 @@ if ($row['file'] != '') {
 </head>
 <body>
     <h1><?= $board_title ?></h1>
-    <h2><?= $row['hit'] ?></h2>
+    <h2>글 조회 수 : <?= $row['hit'] ?></h2>
     <h3>
         <a href="list.php?code=<?= $row['code'] ?>">목록으로</a>
         <a href="edit.php?code=<?= $row['code'] ?>&idx=<?= $row['idx'] ?>">수정하기</a>
         <a href="delete.php?code=<?= $row['code'] ?>&idx=<?= $row['idx'] ?>">삭제하기</a>
 </h3>
+
+    <h3>제목 : <?= $row['subject'] ?></h3>
+    <h3>글쓴이 : <?= $row['name'] ?></h3>
+    <h3>글작성일시 : <?= $row['rdatetime'] ?></t3>
     <div>
         <?= $img; ?>
     </div>

@@ -42,12 +42,13 @@ if (!$row) {
     <form method="post" enctype="multipart/form-data" action="edit_ok.php" autocomplete="off">
         <input type="hidden" name="code" value="<?= $code ?>">
         <input type="hidden" name="idx" value="<?= $idx ?>">
+        <input type="hidden" name="old_file" value="<?= $row['file'] ?>">
         이름 : <input type="text" name="name" maxlength="30" value="<?= $row['name'] ?>"> <br>
         비밀번호 : <input type="password" name="passwd" maxlength="50" value="<?= $row['passwd'] ?>"> <br>
         제목 : <input type="text" name="subject" size="100" value="<?= $row['subject'] ?>"> <br>
         본문 : <br>
         <textarea cols="100" rows="15" name="content"><?= $row['content'] ?></textarea> <br>
-
+        파일첨부 : <input type="file" name="file"><br>
 <?php if ($row['file']) {
     list($file_src, $file_name, $file_hit) = explode('|', $row['file']);
     echo '<input type="checkbox" name="filedel" value="1"> '.$file_name .' 삭제<br>';
