@@ -55,7 +55,10 @@ if ($row['file'] != '') {
 <body>
     <h1><?= $board_title ?></h1>
     <h2><?= $row['hit'] ?></h2>
-    <h3><a href="list.php?code=<?= $row['code'] ?>">목록으로</a></h3>
+    <h3>
+        <a href="list.php?code=<?= $row['code'] ?>">목록으로</a>
+        <a href="delete.php?code=<?= $row['code'] ?>&idx=<?= $row['idx'] ?>">삭제하기</a>
+</h3>
     <div>
         <?= $img; ?>
     </div>
