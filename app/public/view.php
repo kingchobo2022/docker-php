@@ -57,6 +57,7 @@ if ($row['file'] != '') {
     <h2><?= $row['hit'] ?></h2>
     <h3>
         <a href="list.php?code=<?= $row['code'] ?>">목록으로</a>
+        <a href="edit.php?code=<?= $row['code'] ?>&idx=<?= $row['idx'] ?>">수정하기</a>
         <a href="delete.php?code=<?= $row['code'] ?>&idx=<?= $row['idx'] ?>">삭제하기</a>
 </h3>
     <div>
