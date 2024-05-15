@@ -12,7 +12,7 @@ $code = getGet('code');
 </head>
 <body>
     <form method="post" action="login_ok.php">
-        <input type="hidden" name="<?= $code ?>" />
+        <input type="hidden" name="code" value="<?= $code ?>" />
         아이디: <input type="text" name="id"> <br>
         암호 : <input type="password" name="passwd"> <br>
         <button>로그인</button>
