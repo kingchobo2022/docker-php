@@ -99,3 +99,13 @@ function downloadFile($filePath, $originalFileName) {
         echo "파일이 존재하지 않습니다.";
     }
 }
+
+function fileUpload($var) {
+    if ( isset($_FILES[$var]['tmp_name']) && $_FILES[$var]['tmp_name'] != '' && is_uploaded_file($_FILES[$var]['tmp_name']) ) {
+        $newfilename = makeFileName($_FILES[$var]['name']);
+        
+        move_uploaded_file($_FILES[$var]['tmp_name'], 'data/'. $newfilename);
+        return $newfilename .'|'. $_FILES[$var]['name'] .'|0';
+    }
+    return '';
+}
