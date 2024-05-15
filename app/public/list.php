@@ -16,3 +16,4 @@ if ($ses_id == '') {
     exit('로그인 후 이용해 주시기 바랍니다. <a href="login.php?code='.$code.'">로그인 페이지로 이동</a>');
 }
 
+echo '<a href="logout.php">로그아웃</a>';
