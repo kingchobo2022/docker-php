@@ -97,10 +97,16 @@ $rs = $stmt->fetchAll(PDO::FETCH_ASSOC);
         $rdatetime = $row['rdatetime'] ? substr($row['rdatetime'], 0, 16) : '';
         $img = getFileIcon($row['file']);
 
+        if ($ses_id != '') {
+            $link = 'view.php?idx='. $row['idx'].'&code='. $code;
+        } else {
+            $link = 'login.php';
+        }
+
         echo '
         <tr>
             <td>'. $row['idx'] .'</td>
-            <td>'. $row['subject'] .'</td>
+            <td><a href="'.$link.'">'. $row['subject'] .'</a></td>
             <td>'. $img .'</td>
             <td>'. $row['member_id'] .'</td>
             <td>'. $row['hit'] .'</td>
