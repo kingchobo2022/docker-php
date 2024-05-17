@@ -41,7 +41,7 @@ $arr = [
 $rs = $stmt->execute($arr);
 
 if ($rs) {
-    exit('글 등록이 성공적으로 이뤄졌습니다. <a href="list.php?code={$code}">글 목록</a>');
+    exit("글 등록이 성공적으로 이뤄졌습니다. <a href=\"list.php?code={$code}\">글 목록</a>");
 } else {
-    exit('글 등록할 때 오류가 발생했습니다. <a href="list.php?code={$code}">글 목록</a>');
+    exit("글 등록할 때 오류가 발생했습니다. <a href=\"list.php?code={$code}\">글 목록</a>");
 }
