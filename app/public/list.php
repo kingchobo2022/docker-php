@@ -114,7 +114,18 @@ $rs = $stmt->fetchAll(PDO::FETCH_ASSOC);
         </tr>
         ';
     }
+
+    if (!$total) {
+        echo '
+        <tr>
+            <td colspan="6" style="padding: 20px">등록된 게시물이 없습니다.</td>
+        </tr>
+        ';
+    }
+
 ?>    
+
+
   </table>  
 <hr>
 <?php echo $paging; ?>  

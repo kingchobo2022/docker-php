@@ -51,6 +51,14 @@ if ($row['file']) {
     <title><?= $row['subject'] ?></title>
 </head>
 <body>
+<?php
+    echo  '['.$ses_id.'] 님이 로그인 하셨습니다. <a href="logout.php">로그아웃</a> ';
+?>
+<hr>
+    <?php include 'inc/menu.php'; ?>
+<hr>
+<h1><?= $board_title ?></h1>
+
     <table border="1" width="500">
         <tr>
             <td width="100">제목</td>
@@ -70,7 +78,7 @@ if ($row['file']) {
         <?php if($row['file']) { ?>
         <tr>
             <td>파일</td>
-            <td colspan="3"><a href="download.php?idx=<?= $row['idx'] ?>"><?= $file_name ?></a> (다운로드 <?= $file_hit ?> 회)</td>
+            <td colspan="3"><a href="download.php?code=<?= $row['code']; ?>&idx=<?= $row['idx'] ?>"><?= $file_name ?></a> (다운로드 <?= $file_hit ?> 회)</td>
         </tr>
         <?php            
         }
