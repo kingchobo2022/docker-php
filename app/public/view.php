@@ -24,6 +24,14 @@ $stmt = $conn->prepare($sql);
 $stmt->execute([':code' => $code , ':idx' => $idx]);
 $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
+// 조회 수 증가
+if ($row['last_viewer'] != $ses_id) {
+    $sql = "UPDATE step4 SET hit=hit+1, last_viewer=:last_viewer WHERE code=:code AND idx=:idx";
+    $stmt = $conn->prepare($sql);
+    $stmt->execute([':code' => $code , ':idx' => $idx, ':last_viewer' => $ses_id]);
+}
+
+
 if (!$row) {
     exit('해당 게시물이 존재하지 않습니다.. <a href="list.php?code='.$code.'">'.$board_title.' 목록으로</a>');
 }
