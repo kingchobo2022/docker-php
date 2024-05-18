@@ -85,7 +85,10 @@ if ($row['file']) {
         ?>
     </table>   
     <?php if($row['member_id'] == $ses_id) { ?>
+    <a href="edit.php?idx=<?= $idx ?>&code=<?= $code ?>">수정</a>
+    | 
     <a href="delete.php?idx=<?= $idx ?>&code=<?= $code ?>">삭제</a>
+
     <?php } ?>
     
 </body>

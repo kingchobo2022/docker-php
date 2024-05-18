@@ -42,5 +42,5 @@ $rs = $stmt->execute([':idx' => $idx, ':code' => $code]);
 if ($rs) {
     exit('게시물이 삭제되었습니다. <a href="list.php?code='.$code.'">목록으로 </a>');
 } else {
-    exit('게시물이 삭제를 실패했습니다. <a href="list.php?code='.$code.'">목록으로 </a>');
+    exit('게시물 삭제를 실패했습니다. <a href="list.php?code='.$code.'">목록으로 </a>');
 }
