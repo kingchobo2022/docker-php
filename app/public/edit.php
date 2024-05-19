@@ -43,7 +43,7 @@ if ($row['member_id'] != $ses_id) {
     <?php include 'inc/menu.php'; ?>
 
     <h1><?= $board_title; ?></h1>
-    <form method="post" enctype="mutipart/form-data" action="edit_ok.php">
+    <form method="post" enctype="multipart/form-data" action="edit_ok.php">
         <input type="hidden" name="code" value="<?= $code ?>">
         <input type="hidden" name="idx" value="<?= $idx ?>">
         <table border="1" width="500">
