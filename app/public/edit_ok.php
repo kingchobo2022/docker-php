@@ -44,7 +44,7 @@ $filedel = getPost('filedel');
 if ($filedel || $file_upload) {
     if (!empty($row['file'])) {
         list($file_src, $file_name, $file_hit) = explode('|', $row['file']);
-        $file_fullpath = "data/". $file_src;
+        $file_fullpath = "data/{$code}/{$file_src}";
         if (file_exists($file_fullpath)) {
             unlink($file_fullpath);
         }
@@ -56,7 +56,7 @@ $filename = '';
 if ($file_upload) {
     if ( is_uploaded_file($_FILES['file']['tmp_name'])) {
         $newfilename = makeFileName($_FILES['file']['name']);
-        move_uploaded_file($_FILES['file']['tmp_name'], 'data/'. $newfilename);
+        move_uploaded_file($_FILES['file']['tmp_name'], 'data/'. $code .'/'. $newfilename);
         $filename = $newfilename .'|'. $_FILES['file']['name'] .'|0';
     }
 }

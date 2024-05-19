@@ -38,4 +38,4 @@ $sql = "UPDATE step4 SET file=:file WHERE idx=:idx AND code=:code";
 $stmt = $conn->prepare($sql);
 $stmt->execute([':idx' => $idx, ':code' => $code, ':file' => $tmp_str]);
 
-downloadFile('data/'. $file_src, $file_name);
+downloadFile('data/'.$code.'/'. $file_src, $file_name);

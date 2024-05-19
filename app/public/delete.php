@@ -30,7 +30,7 @@ if ($row['member_id'] != $ses_id) {
 if ($row['file'] != '') {
     list($file_src, $file_name, $file_hit) = explode('|', $row['file']);
 
-    $file_fullpath = 'data/'. $file_src;
+    $file_fullpath = 'data/'. $code .'/'. $file_src;
     if (file_exists($file_fullpath)) {
         unlink($file_fullpath);
     }

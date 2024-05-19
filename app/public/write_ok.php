@@ -24,7 +24,7 @@ if ($content == '') {
     exit('글 내용이 비어 있습니다. <a href="write.php?code={$code}">글쓰기로 이동</a>');
 }
 
-$filename = fileUpload('file');
+$filename = fileUpload('file', $code);
 
 $sql = "INSERT INTO step4 SET code=:code, member_id=:member_id, 
 subject=:subject, content=:content, file=:file, hit=0, rdatetime=NOW()";

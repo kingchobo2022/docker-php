@@ -39,7 +39,7 @@ if (!$row) {
 $img_tag = '';
 if ($row['file']) {
     list($file_src, $file_name, $file_hit) = explode('|', $row['file']);
-    $img_tag = '<img src="data/'.$file_src.'" width="350">';
+    $img_tag = '<img src="data/'.$code .'/'.$file_src.'" width="350">';
 }
 
 ?>

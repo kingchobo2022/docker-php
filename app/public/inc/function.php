@@ -100,11 +100,15 @@ function downloadFile($filePath, $originalFileName) {
     }
 }
 
-function fileUpload($var) {
+function fileUpload($var, $code) {
     if ( isset($_FILES[$var]['tmp_name']) && $_FILES[$var]['tmp_name'] != '' && is_uploaded_file($_FILES[$var]['tmp_name']) ) {
         $newfilename = makeFileName($_FILES[$var]['name']);
+
+        if (!file_exists('data/'. $code)) {
+            mkdir('data/'. $code);
+        }
         
-        move_uploaded_file($_FILES[$var]['tmp_name'], 'data/'. $newfilename);
+        move_uploaded_file($_FILES[$var]['tmp_name'], 'data/'.$code .'/'. $newfilename);
         return $newfilename .'|'. $_FILES[$var]['name'] .'|0';
     }
     return '';
