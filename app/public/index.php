@@ -1,15 +1,11 @@
-<?php
-
-$host = $_ENV['MYSQL_HOST'];
-$username = $_ENV['MYSQL_USER'];
-$password = $_ENV['MYSQL_PASSWORD'];
-$dbname = $_ENV['MYSQL_DATABASE'];
-//$port = $_ENV['MYSQL_PORT'];
-
-try {
-    $pdo = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
-    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    echo "Connected successfully";
-} catch (PDOException $e) {
-    echo "Connection failed: " . $e->getMessage();
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <a href="write.php">게시판 글쓰기</a>
+</body>
+</html>
