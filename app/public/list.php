@@ -46,7 +46,7 @@ $rs = $stmt->fetchAll(PDO::FETCH_ASSOC);
             <td><?= $row['subject'] ?></td>
             <td><?= $row['name'] ?></td>
             <td><?= substr($row['rdatetime'],0, 16) ?></td>
-            <td>삭제</td>
+            <td><button type="button" onclick=bbs_delete(<?= $row['idx'] ?>)>삭제</button></td>
         </tr>
 <?php        
     endforeach; 
@@ -56,5 +56,13 @@ $rs = $stmt->fetchAll(PDO::FETCH_ASSOC);
     echo $paging;
 ?>
 
+<script>
+function bbs_delete(idx) {
+    var answer = confirm('이 게시물을 삭제하시겠습니까?')
+    if(answer) {
+        self.location.href='delete.php?idx=' + idx;
+    }
+}
+</script>
 </body>
 </html>
