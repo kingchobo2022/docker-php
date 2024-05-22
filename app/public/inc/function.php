@@ -67,3 +67,11 @@ function downloadFile($filePath, $originalFileName) {
         echo "파일이 존재하지 않습니다.";
     }
 }
+
+function checkEmptygoBack($a, $b) {
+    if ($a == '') {
+        exit('<script>alert("'.$b.'이(가) 비어 있습니다.");
+            history.go(-1);
+        </script>');
+    }    
+}

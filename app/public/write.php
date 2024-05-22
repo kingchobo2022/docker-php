@@ -24,14 +24,14 @@
     btn_submit.addEventListener("click", function(){
         
         if (f.name.value == '') {
-            alert('이름을 입력해 주세요.')
-            f.name.focus()
-            return
+           alert('이름을 입력해 주세요.')
+           f.name.focus()
+           return
         }
         if (f.passwd.value == '') {
-            alert('암호를 입력해 주세요.')
-            f.passwd.focus()
-            return
+           alert('암호를 입력해 주세요.')
+           f.passwd.focus()
+           return
         }
         if (f.subject.value == '') {
             alert('제목을 입력해 주세요.')
