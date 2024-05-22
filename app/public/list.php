@@ -2,6 +2,19 @@
 require 'inc/connect.php';
 require 'inc/function.php';
 
+$currentPage = isset($_GET['page']) && is_numeric($_GET['page']) ? $_GET['page'] : 1;
+$baseUrl = 'list.php';
+
+$sql = "SELECT COUNT(*) cnt FROM step5";
+$stmt = $conn->prepare($sql);
+$stmt->execute();
+$row = $stmt->fetch(PDO::FETCH_ASSOC);
+$total = $row['cnt']; // total 글 수
+$limit = 5; // 페이지당 글 수
+$totalPages = ceil($total / $limit) ; // 올림함수 ceil(), 내림함수 floor()
+
+$paging = paginate($totalPages, $currentPage, $baseUrl);
+
 $sql = "SELECT idx, name, subject, rdatetime FROM step5 ORDER BY idx DESC LIMIT 100";
 $stmt = $conn->prepare($sql);
 $stmt->execute();
@@ -16,7 +29,7 @@ $rs = $stmt->fetchAll(PDO::FETCH_ASSOC);
 </head>
 <body>
     <h1>글목록</h1>
-    <a href="writer.php">글쓰기</a>
+    <a href="write.php">글쓰기</a>
     <table border="1">
         <tr>
             <th>번호</th>    
@@ -32,12 +45,16 @@ $rs = $stmt->fetchAll(PDO::FETCH_ASSOC);
             <td><?= $row['idx'] ?></td>
             <td><?= $row['subject'] ?></td>
             <td><?= $row['name'] ?></td>
-            <td><?= $row['rdatetime'] ?></td>
+            <td><?= substr($row['rdatetime'],0, 16) ?></td>
             <td>삭제</td>
         </tr>
 <?php        
     endforeach; 
 ?>
     </table>
+<?php
+    echo $paging;
+?>
+
 </body>
 </html>
