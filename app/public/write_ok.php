@@ -23,13 +23,7 @@ $arr = [
 
 $rs = $stmt->execute($arr);
 if ($rs) {
-    echo "<script>alert('성공적으로 저장이 되었습니다.');
-    self.location.href='list.php';
-    </script>
-    ";
+    myAlert('성공적으로 저장이 되었습니다.', 'list.php');
 } else {
-    echo "<script>alert('글 저장에 실패했습니다.');
-    self.location.href='list.php';
-    </script>
-    ";
+    myAlert('글 저장에 실패했습니다.', 'list.php');
 }
