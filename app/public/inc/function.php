@@ -82,3 +82,10 @@ function myAlert($msg, $where) {
     </script>";
     exit;
 }
+
+function getBoardView($idx, $conn) {
+    $sql = "SELECT * FROM step5 WHERE idx=:idx";
+    $stmt = $conn->prepare($sql);
+    $stmt->execute([':idx' => $idx]);
+    return $stmt->fetch(PDO::FETCH_ASSOC);
+}

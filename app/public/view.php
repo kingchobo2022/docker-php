@@ -8,10 +8,12 @@ if($idx == '') {
     myAlert('게시물 번호가 비어 있습니다.', 'list.php');
 }
 
-$sql = "SELECT * FROM step5 WHERE idx=:idx";
-$stmt = $conn->prepare($sql);
-$stmt->execute([':idx' => $idx]);
-$row = $stmt->fetch(PDO::FETCH_ASSOC);
+// $sql = "SELECT * FROM step5 WHERE idx=:idx";
+// $stmt = $conn->prepare($sql);
+// $stmt->execute([':idx' => $idx]);
+// $row = $stmt->fetch(PDO::FETCH_ASSOC);
+
+$row = getBoardView($idx, $conn);
 
 ?>
 <!DOCTYPE html>
