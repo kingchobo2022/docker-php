@@ -43,7 +43,7 @@ $rs = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
         <tr>
             <td><?= $row['idx'] ?></td>
-            <td><?= $row['subject'] ?></td>
+            <td><a href="view.php?idx=<?= $row['idx'] ?>"><?= $row['subject'] ?></a></td>
             <td><?= $row['name'] ?></td>
             <td><?= substr($row['rdatetime'],0, 16) ?></td>
             <td><button type="button" onclick=bbs_delete(<?= $row['idx'] ?>)>삭제</button></td>

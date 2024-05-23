@@ -79,6 +79,6 @@ function checkEmptygoBack($a, $b) {
 function myAlert($msg, $where) {
     echo "<script>alert('".$msg."');
     self.location.href='".$where."';
-    </script>
-    ";    
+    </script>";
+    exit;
 }
