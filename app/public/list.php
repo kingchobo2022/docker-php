@@ -6,6 +6,7 @@
     <title>Document</title>
 </head>
 <body>
-     <a href="list.php">게시판으로 이동</a>
+    <h1>글목록</h1>
+    <a href="write.php">글쓰기</a>
 </body>
 </html>
