@@ -20,17 +20,7 @@ if ($content == '') {
     checkEmptygoBack($content, '글내용');
 }
 
-$filename = '';
-if ( isset($_FILES['file']['tmp_name']) 
-     && $_FILES['file']['tmp_name'] != ''
-     && is_uploaded_file($_FILES['file']['tmp_name'])
-   ) 
-{
-    $newfilename = makeFileName($_FILES['file']['name']);
-    move_uploaded_file($_FILES['file']['tmp_name'], 'data/'. $newfilename);
-
-    $filename = $newfilename .'|'. $_FILES['file']['name'] .'|0';
-}
+$filename = uploadFile('file'); 
 
 
 $sql = "INSERT INTO step6 SET name=:name, subject=:subject, passwd=:passwd, content=:content, 

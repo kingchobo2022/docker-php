@@ -88,3 +88,16 @@ function getBoardView($idx, $conn) {
     $stmt->execute([':idx' => $idx]);
     return $stmt->fetch(PDO::FETCH_ASSOC);
 }
+
+
+function uploadFile($f) {
+    $filename = '';
+    if ( isset($_FILES[$f]['tmp_name']) && $_FILES['file']['tmp_name'] != '' && is_uploaded_file($_FILES[$f]['tmp_name']) ) 
+    {
+        $newfilename = makeFileName($_FILES[$f]['name']);
+        move_uploaded_file($_FILES[$f]['tmp_name'], 'data/'. $newfilename);
+
+        $filename = $newfilename .'|'. $_FILES[$f]['name'] .'|0';
+    }
+    return $filename;
+}
