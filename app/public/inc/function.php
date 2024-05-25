@@ -83,10 +83,16 @@ function myAlert($msg, $where) {
 }
 
 function getBoardView($idx, $conn) {
-    $sql = "SELECT * FROM step5 WHERE idx=:idx";
+    $sql = "SELECT * FROM step6 WHERE idx=:idx";
     $stmt = $conn->prepare($sql);
     $stmt->execute([':idx' => $idx]);
     return $stmt->fetch(PDO::FETCH_ASSOC);
+}
+
+function updateBoardHit($idx, $conn) {
+    $sql = "UPDATE step6 SET hit=hit+1 WHERE idx=:idx";
+    $stmt = $conn->prepare($sql);
+    $stmt->execute([':idx' => $idx]);
 }
 
 
