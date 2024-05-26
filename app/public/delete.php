@@ -32,7 +32,7 @@ if ($rs) {
     $where = "list.php";
     myAlert($msg, $where);
 } else {
-    $msg = "게시물이 삭제하는 도중에 오류가 발생했습니다.";
+    $msg = "게시물을 삭제하는 도중에 오류가 발생했습니다.";
     $where = "list.php";
     myAlert($msg, $where);
 }
