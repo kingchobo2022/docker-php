@@ -15,6 +15,24 @@ function getGet($var) {
     return (isset($_GET[$var]) && $_GET[$var] != '') ? $_GET[$var] : '';
 }
 
+function checkPost($var) {
+    $var2 = getPost($var);
+    if ($var2 == '') {
+        $arr = ['result' => 'empty_'.$var];
+        $json = json_encode($arr); 
+        exit($json);
+    }
+    return $var2;    
+}
+
+function checkMultiPost($arr) { 
+    $rs = [];
+    foreach($arr AS $row) {
+        $rs[$row] = checkPost($row);
+    }
+    return $rs;
+}
+
 function getExtension($file_name) {
     $tmp = explode('.', $file_name);
     return end($tmp);
