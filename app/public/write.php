@@ -35,6 +35,6 @@
             </div>
         </form>
     </div>
-    <script src="js/write.js?v=1"></script>
+    <script src="js/write.js?v=2"></script>
 </body>
 </html>

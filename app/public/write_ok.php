@@ -10,12 +10,55 @@ $password = getPost('password');
 $content = getPost('content');
 
 if ($title == '') {
-    // step1 ~ step4
-    // exit('제목이 비어 있습니다. <a href="list.php">목록으로 이동</a>');
-    // step5 ~ step6
-    // echo '<script>alert("제목이 비어 있습니다");self.location.href="list.php";</script>';
-    // step7 
     $arr = ['result' => 'empty_title'];
     $json = json_encode($arr); //  {"result" : "empty_title"} 
     exit($json);
 }
+if ($name == '') {
+    $arr = ['result' => 'empty_name'];
+    $json = json_encode($arr); //  {"result" : "empty_name"} 
+    exit($json);
+}
+
+if ($title == '') {
+    $arr = ['result' => 'empty_title'];
+    $json = json_encode($arr); //  {"result" : "empty_title"} 
+    exit($json);
+}
+if ($password == '') {
+    $arr = ['result' => 'empty_password'];
+    $json = json_encode($arr); //  {"result" : "empty_password"} 
+    exit($json);
+}
+if ($content == '') {
+    $arr = ['result' => 'empty_content'];
+    $json = json_encode($arr); //  {"result" : "empty_content"} 
+    exit($json);
+}
+
+$sql = "INSERT INTO step7 set name=:name, 
+passwd=:password, subject=:title, 
+email=:email, content=:content, rdatetime=:rdatetime";
+
+$arr = [
+    ':name' => $name,
+    ':password' => $password,
+    ':title' => $title,
+    ':email' => $email,
+    ':content' => $content,
+    ':rdatetime' => date('Y-m-d H:i:s')
+];
+
+$stmt = $conn->prepare($sql);
+$rs = $stmt->execute($arr);
+
+if ($rs) {
+    $arr = ['result' => 'success'];
+} else {
+    $arr = ['result' => 'fail'];
+}
+
+$json = json_encode($arr); 
+exit($json);
+
+
