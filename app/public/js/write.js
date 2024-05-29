@@ -2,11 +2,11 @@ const btn_submit = document.getElementById('btn_submit')
 
 btn_submit.addEventListener("click", function(){
     const f = document.write_form;
-    if (f.title.value == '') {
-        alert('제목이 비어 있습니다.')
-        f.title.focus()
-        return false
-    }
+    // if (f.title.value == '') {
+    //     alert('제목이 비어 있습니다.')
+    //     f.title.focus()
+    //     return false
+    // }
     if (f.name.value == '') {
         alert('이름이 비어 있습니다.')
         f.name.focus()
