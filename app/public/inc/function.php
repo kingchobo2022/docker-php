@@ -65,10 +65,12 @@ function getBoardName($code) {
     return '';
 }
 
-function paginate($totalPages, $currentPage, $baseUrl, $code) {
+function paginate($totalPages, $currentPage, $baseUrl, $code = '') {
     global $sn, $sf;
-    $pagination = '';
 
+    $pagination = '<nav aria-label="Page navigation">
+    <ul class="pagination">';
+    
     $optstr = '';
     if ($sn != '' && $sf != '') {
         $optstr = '&sn='.$sn.'&sf='.$sf;
@@ -77,23 +79,30 @@ function paginate($totalPages, $currentPage, $baseUrl, $code) {
     // 이전 페이지 링크
     if ($currentPage > 1) {
         $prevPage = $currentPage - 1;
-        $pagination .= ' <a href="' . $baseUrl . '?code='.$code.'&page=' . $prevPage . $optstr.'">이전</a> ';
+        $pagination .= ' <li><a href="'.$baseUrl.'?code='.$code.'&page=' . $prevPage . $optstr.'" tabindex="-1">Previous</a></li>';
+    } else {
+        $pagination .= '<li class="disabled"><a href="#" tabindex="-1">Previous</a></li>';
     }
 
     // 페이지 숫자 링크
     for ($i = 1; $i <= $totalPages; $i++) {
         if ($i == $currentPage) {
-            $pagination .= '<span>' . $i . '</span>';
+            $pagination .= '<li class="disabled"><a href="#">' . $i . '</a></li>';
         } else {
-            $pagination .= ' <a href="' . $baseUrl . '?code='.$code.'&page=' . $i . $optstr.'">' . $i . '</a> ';
+            $pagination .= '<li><a href="' . $baseUrl . '?code='.$code.'&page=' . $i . $optstr.'">' . $i . '</a></li>';
         }
     }
 
     // 다음 페이지 링크
     if ($currentPage < $totalPages) {
         $nextPage = $currentPage + 1;
-        $pagination .= ' <a href="' . $baseUrl . '?code='.$code.'&page=' . $nextPage . $optstr.'">다음</a> ';
+        $pagination .= '<li><a href="' . $baseUrl . '?code='.$code.'&page=' . $nextPage . $optstr.'">Next</a></li>';
+    } else {
+        $pagination .= '<li><a href="#" class="disabled">Next</a></li>';
     }
+
+    $pagination .= '</ul>
+    </nav>';
 
     return $pagination;
 }
@@ -116,4 +125,11 @@ function downloadFile($filePath, $originalFileName) {
         // 파일이 존재하지 않을 경우 에러 출력
         echo "파일이 존재하지 않습니다.";
     }
+}
+
+function getBoardCnt($sql, $conn) {
+    $stmt = $conn->prepare($sql);
+    $stmt->execute();
+    $row = $stmt->fetch(PDO::FETCH_ASSOC);
+    return $row['cnt'];
 }
