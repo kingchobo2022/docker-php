@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>게시판 목록</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+        h2 {
+            margin-bottom: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        table, th, td {
+            border: 1px solid #ccc;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #f4f4f4;
+        }
+        .pagination {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            padding: 0;
+        }
+        .pagination li {
+            margin: 0 5px;
+        }
+        .pagination a {
+            text-decoration: none;
+            color: #007bff;
+            padding: 8px 12px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .pagination a:hover {
+            background-color: #f4f4f4;
+        }
+        .pagination .disabled a {
+            color: #ccc;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>게시판 목록</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th scope="col">번호</th>
+                    <th scope="col">제목</th>
+                    <th scope="col">작성자</th>
+                    <th scope="col">작성일</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row">1</th>
+                    <td>게시글 제목 1</td>
+                    <td>작성자 1</td>
+                    <td>2024-05-31</td>
+                </tr>
+                <tr>
+                    <th scope="row">2</th>
+                    <td>게시글 제목 2</td>
+                    <td>작성자 2</td>
+                    <td>2024-05-30</td>
+                </tr>
+                <tr>
+                    <th scope="row">3</th>
+                    <td>게시글 제목 3</td>
+                    <td>작성자 3</td>
+                    <td>2024-05-29</td>
+                </tr>
+                <!-- 추가된 게시글 -->
+                <tr>
+                    <th scope="row">4</th>
+                    <td>게시글 제목 4</td>
+                    <td>작성자 4</td>
+                    <td>2024-05-28</td>
+                </tr>
+                <tr>
+                    <th scope="row">5</th>
+                    <td>게시글 제목 5</td>
+                    <td>작성자 5</td>
+                    <td>2024-05-27</td>
+                </tr>
+                <tr>
+                    <th scope="row">6</th>
+                    <td>게시글 제목 6</td>
+                    <td>작성자 6</td>
+                    <td>2024-05-26</td>
+                </tr>
+            </tbody>
+        </table>
+        <nav aria-label="Page navigation">
+            <ul class="pagination">
+                <li class="disabled"><a href="#" tabindex="-1">Previous</a></li>
+                <li><a href="#">1</a></li>
+                <li><a href="#">2</a></li>
+                <li><a href="#">3</a></li>
+                <li><a href="#">Next</a></li>
+            </ul>
+        </nav>
+    </div>
+</body>
+</html>

@@ -7,13 +7,18 @@ $baseUrl = 'list.php';
 
 $sql = "SELECT COUNT(*) cnt FROM step7";
 $total = getBoardCnt($sql, $conn); // total 글 수
-$limit = 2; // 페이지당 글 수
+$limit = 3; // 페이지당 글 수
 
 $totalPages = ceil($total / $limit);
 
 $paging = paginate($totalPages, $currentPage, $baseUrl);
 
+$sql = "SELECT idx, subject, name, DATE_FORMAT(rdatetime, '%Y-%m-%d') as rdate 
+FROM step7 ORDER BY idx DESC LIMIT ".(($currentPage - 1) * $limit) .",". $limit;
 
+$stmt = $conn->prepare($sql);
+$stmt->execute();
+$rs = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 ?>
 <!DOCTYPE html>
@@ -37,43 +42,18 @@ $paging = paginate($totalPages, $currentPage, $baseUrl);
                 </tr>
             </thead>
             <tbody>
+<?php
+    foreach($rs AS $row): 
+?>                
                 <tr>
-                    <th scope="row">1</th>
-                    <td>게시글 제목 1</td>
-                    <td>작성자 1</td>
-                    <td>2024-05-31</td>
+                    <th scope="row"><?= $row['idx'] ?></th>
+                    <td><?= $row['subject'] ?></td>
+                    <td><?= $row['name'] ?></td>
+                    <td><?= $row['rdate'] ?></td>
                 </tr>
-                <tr>
-                    <th scope="row">2</th>
-                    <td>게시글 제목 2</td>
-                    <td>작성자 2</td>
-                    <td>2024-05-30</td>
-                </tr>
-                <tr>
-                    <th scope="row">3</th>
-                    <td>게시글 제목 3</td>
-                    <td>작성자 3</td>
-                    <td>2024-05-29</td>
-                </tr>
-                <!-- 추가된 게시글 -->
-                <tr>
-                    <th scope="row">4</th>
-                    <td>게시글 제목 4</td>
-                    <td>작성자 4</td>
-                    <td>2024-05-28</td>
-                </tr>
-                <tr>
-                    <th scope="row">5</th>
-                    <td>게시글 제목 5</td>
-                    <td>작성자 5</td>
-                    <td>2024-05-27</td>
-                </tr>
-                <tr>
-                    <th scope="row">6</th>
-                    <td>게시글 제목 6</td>
-                    <td>작성자 6</td>
-                    <td>2024-05-26</td>
-                </tr>
+<?php
+    endforeach;
+?>                
             </tbody>
         </table>
         
