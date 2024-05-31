@@ -133,3 +133,17 @@ function getBoardCnt($sql, $conn) {
     $row = $stmt->fetch(PDO::FETCH_ASSOC);
     return $row['cnt'];
 }
+
+function checkEmptygoWhere($a, $b, $url) {
+    if ($a == '') {
+        exit('<script>alert("'.$b.'이(가) 비어 있습니다.");
+            self.location.href="'.$url.'";
+        </script>');
+    }    
+}
+
+function msgGowhere($msg, $url) {
+    exit('<script>alert("'.$msg.'");
+        self.location.href="'.$url.'";
+    </script>');
+}

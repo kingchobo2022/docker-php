@@ -27,11 +27,12 @@ $rs = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>게시판 목록</title>
-    <link rel="stylesheet" href="css/list.css">
+    <link rel="stylesheet" href="css/list.css?v=2">
 </head>
 <body>
     <div class="container">
         <h2>게시판 목록</h2>
+        <a href="/write.php" class="btn">글쓰기</a>
         <table>
             <thead>
                 <tr>
@@ -47,7 +48,7 @@ $rs = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>                
                 <tr>
                     <th scope="row"><?= $row['idx'] ?></th>
-                    <td><?= $row['subject'] ?></td>
+                    <td><a href="view.php?idx=<?= $row['idx'] ?>"><?= $row['subject'] ?></a></td>
                     <td><?= $row['name'] ?></td>
                     <td><?= $row['rdate'] ?></td>
                 </tr>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>게시판 글 상세보기</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            width: 80%;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .post-title {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .post-meta {
+            font-size: 14px;
+            color: #777;
+            margin-bottom: 20px;
+        }
+        .post-content {
+            font-size: 16px;
+            line-height: 1.6;
+        }
+        .btn-group {
+            margin-top: 20px;
+        }
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 14px;
+            color: #fff;
+            background-color: #007bff;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-right: 10px;
+        }
+        .btn:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="post-title">게시글 제목</div>
+        <div class="post-meta">작성자: 홍길동 | 작성일: 2024-06-01</div>
+        <div class="post-content">
+            <p>여기에 게시글 내용이 들어갑니다. 게시글의 내용은 여러 줄로 구성될 수 있습니다.</p>
+            <p>추가 내용이 있을 경우 이와 같이 계속해서 작성할 수 있습니다.</p>
+        </div>
+        <div class="btn-group">
+            <a href="#" class="btn">수정</a>
+            <a href="#" class="btn">삭제</a>
+            <a href="board_list.html" class="btn">목록으로</a>
+        </div>
+    </div>
+</body>
+</html>
