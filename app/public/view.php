@@ -24,6 +24,7 @@ if(!$row) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>게시판 글 상세보기</title>
     <link rel="stylesheet" href="css/view.css">
+    <script src="js/view.js"></script>
 </head>
 <body>
     <div class="container">
@@ -34,9 +35,10 @@ if(!$row) {
         </div>
         <div class="btn-group">
             <a href="/edit.php?idx=<?= $row['idx'] ?>" class="btn">수정</a>
-            <a href="#" class="btn">삭제</a>
+            <a href="#" class="btn" id="btn_delete" data-idx="<?= $row['idx'] ?>">삭제</a>
             <a href="list.php" class="btn">목록으로</a>
         </div>
     </div>
+    
 </body>
 </html>
